@@ -33,7 +33,7 @@ async def chat_with_gemini(prompt: Prompt):
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.get("/chat/")
-async def chat_with_gemini_get(query: str = Query(..., description="The query text to send to Gemini")):
+async def chat_with_gemini_get(query: str = Query(..., description="Who are you?")):
     try:
         response = model.generate_content(query)
         return {"response": response.text.strip()}
